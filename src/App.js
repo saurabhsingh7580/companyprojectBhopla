@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Emplregistration from "./components/Emplregistration.";
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AllEmployeeView from "./components/AllEmployeeView";
+// import '~mdb-ui-kit/css/mdb.min.css';
+import UpdateEmployeeData from "./components/UpdateEmployeeData";
+import DropDownUserView from "./components/DropDownUserView";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ToastContainer autoClose={2000} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AllEmployeeView />} />
+          <Route path="/registra" element={<Emplregistration />} />
+          <Route path="/registraupdate" element={<UpdateEmployeeData />} />
+          <Route path="/userview" element={<DropDownUserView />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
